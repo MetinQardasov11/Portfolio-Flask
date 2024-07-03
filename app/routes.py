@@ -4,12 +4,25 @@ from models import *
 
 @app_bp.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('app/index.html')
-
+    homes = Home.query.all()
+    abouts = About.query.all()
+    
+    skills = Skills.query.all()
+    odd_skills = [skill for i, skill in enumerate(skills) if i % 2 == 0]
+    even_skills = [skill for i, skill in enumerate(skills) if i % 2 != 0]
+    
+    educations = Education.query.all()
+    experiences = Experience.query.all()
+    project_categories = ProjectCategory.query.all()
+    projects = Projects.query.all()
+    contacts = Contact.query.all()
+    return render_template('app/index.html', homes=homes, abouts=abouts, skills=skills, odd_skills=odd_skills, even_skills=even_skills, educations=educations, experiences=experiences, project_categories=project_categories, projects=projects, contacts=contacts)
 
 @app_bp.route('/portfolio-details', methods=['GET', 'POST'])
 def portfolio_details():
     return render_template('app/portfolio-details.html')
+
+
 
 
 # @app_bp.route('/register', methods = ['GET', 'POST'])

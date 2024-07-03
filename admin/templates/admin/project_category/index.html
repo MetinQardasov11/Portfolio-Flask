@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>All Categories</h3>
+    <a href="{{ url_for('admin.project_category.add') }}" class="btn btn-success mb-3">Add Category</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Category Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        {% for category in categories %}
+            <tbody>
+                <tr>
+                    <td>{{ category.id }}</td>
+                    <td>{{ category.name }}</td>
+                    <td>
+                        <a href="{{ url_for('admin.project_category.update', id=category.id) }}" class="btn btn-warning">Update</a>
+                        <a href="{{ url_for('admin.project_category.delete', id=category.id) }}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        {% endfor %}
+    </table>
+{% endblock %}

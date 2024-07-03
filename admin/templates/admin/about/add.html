@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="text-white">Add About Information</h2>
+
+<form action="{{ url_for('admin.about.add') }}" method="post" enctype="multipart/form-data">
+    {{ ckeditor.load(pkg_type="full") }}
+
+    <div class="mb-3">
+        {{ aboutForm.image(class_="form-control my-3", type="file", placeholder="About Image") }}
+    </div>
+    <div class="mb-3">
+        {{ aboutForm.job(class_="form-control my-3", placeholder="About Job") }}
+    </div>
+    <div class="mb-3">
+        {{ aboutForm.birthday(class_="form-control my-3",  placeholder="About Birthday") }}
+    </div>
+    <div class="mb-3">
+        {{ aboutForm.website(class_="form-control my-3", placeholder="About Website") }}   
+    </div>
+    <div class="mb-3">
+        {{ aboutForm.phone(class_="form-control my-3", placeholder="About Phone") }}   
+    </div>
+    <div class="mb-3">
+        {{ aboutForm.city(class_="form-control my-3", placeholder="About City") }} 
+    </div>
+    <div class="mb-3">
+        {{ aboutForm.age(class_="form-control my-3", placeholder="About Age") }}   
+    </div>
+    <div class="mb-3">
+        {{ aboutForm.email(class_="form-control my-3", placeholder="About Email") }}   
+    </div>
+    <div class="mb-3">
+        {{ aboutForm.description(class_="form-control my-3", placeholder="About Description") }}   
+    </div>
+    <div class="mb-3">
+        {{ aboutForm.submit(class_="btn btn-success", value="Add About Information") }}  
+    </div>
+
+</form>
+
+{% endblock %}

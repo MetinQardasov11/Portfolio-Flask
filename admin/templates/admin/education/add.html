@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="text-white">Add Education</h2>
+
+<form action="{{ url_for('admin.education.add') }}" method="post" enctype="multipart/form-data">
+    {{ ckeditor.load(pkg_type="full") }}
+
+    <div class="mb-3">
+        {{ educationForm.speciality(class_="form-control my-3", placeholder="Education Speciality") }}
+    </div>
+    <div class="mb-3">
+        {{ educationForm.start_date(class_="form-control my-3", placeholder="Education Start Date") }}
+    </div>
+    <div class="mb-3">
+        {{ educationForm.end_date(class_="form-control my-3",  placeholder="Education End Date") }}
+    </div>
+    <div class="mb-3">
+        {{ educationForm.university(class_="form-control my-3", placeholder="Education University") }}   
+    </div>
+    <div class="mb-3">
+        {{ educationForm.description(class_="form-control my-3", placeholder="Education Description") }}   
+    </div>
+    <div class="mb-3">
+        {{ educationForm.submit(class_="btn btn-success", value="Add Education") }}  
+    </div>
+
+</form>
+
+{% endblock %}

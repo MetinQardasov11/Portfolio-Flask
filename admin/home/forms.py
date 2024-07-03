@@ -3,9 +3,9 @@ from wtforms import StringField, SubmitField
 
 class HomeForm(FlaskForm):
     full_name = StringField('full_name')
-    description = StringField('description')
-    github_link = StringField('github')
-    linkedin_link = StringField('linkedin')
-    facebook_link = StringField('facebook')
-    email_link = StringField('email')
+    content = StringField('content')
+    github_link = StringField('github_link')
+    linkedin_link = StringField('linkedin_link')
+    facebook_link = StringField('facebook_link')
+    email = StringField('email')
     submit = SubmitField('submit')

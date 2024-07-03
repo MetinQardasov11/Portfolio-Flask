@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Add Project</h2>
+
+<form action="{{ url_for('admin.projects.add') }}" method="post" enctype="multipart/form-data">
+
+    <div class="mb-3">
+        <select name="category_id" class="form-control">
+        {% for category in categories %}
+            <option value="{{ category.id }}">{{ category.name }}</option>
+        {% endfor %}
+    </select>
+
+    </div>
+    <div class="mb-3">
+        {{ projectForm.name(class_="form-control my-3", placeholder="Project Name") }}
+    </div>
+
+    <div class="mb-3">
+        {{ projectForm.image(class_="form-control my-3", placeholder="Project Image") }}
+    </div>
+
+    <div class="mb-3">
+        {{ projectForm.link(class_="form-control my-3", placeholder="Project Link") }}
+    </div>
+
+    <div class="mb-3">
+        {{ projectForm.submit(class_="btn btn-success") }}
+    </div>
+
+</form>
+
+{% endblock %}

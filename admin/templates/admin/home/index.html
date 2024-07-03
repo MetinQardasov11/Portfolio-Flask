@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3 class="text-white">All Home Information</h3>
+    <a href="{{ url_for('admin.home.add') }}" class="btn btn-success mb-3">Add Home Information</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Content</th>
+                <th>Github Link</th>
+                <th>Linkedin Link</th>
+                <th>Facebook Link</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for home in homes %}
+                <tr>
+                    <td>{{ home.id }}</td>
+                    <td>{{ home.full_name }}</td>
+                    <td>{{ home.content }}</td>
+                    <td>{{ home.github_link }}</td>
+                    <td>{{ home.linkedin_link }}</td>
+                    <td>{{ home.facebook_link }}</td>
+                    <td>{{ home.email }}</td>
+                    <td>
+                        <a href="{{ url_for('admin.home.update', id=home.id) }}" class="btn btn-warning">Update</a>
+                        <a href="{{ url_for('admin.home.delete', id=home.id) }}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

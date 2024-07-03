@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="text-white">Update Skill</h1>
+
+<form action="{{ url_for('admin.skills.update', id=skill.id) }}" method='post' enctype="multipart/form-data">
+
+    <div class="mb-3">
+        <input type="text" name="skill_name" value="{{ skill.skill_name }}" placeholder="Skill Name" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="number" name="skill_percent" value="{{ skill.skill_percent }}" placeholder="Skill Percent" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="submit" value="Update Skill" class="btn btn-warning">
+    </div>
+</form>
+
+{% endblock %}

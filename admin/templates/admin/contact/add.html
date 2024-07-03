@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="text-white">Add Contact</h2>
+
+<form action="{{ url_for('admin.contact.add') }}" method="post" enctype="multipart/form-data">
+
+    <div class="mb-3">
+        {{ contactForm.address(class_="form-control my-3", placeholder="About Address") }}
+    </div>
+    <div class="mb-3">
+        {{ contactForm.phone(class_="form-control my-3", placeholder="About Phone") }}
+    </div>
+    <div class="mb-3">
+        {{ contactForm.email(class_="form-control my-3",  placeholder="About Email") }}
+    </div>
+    <div class="mb-3">
+        {{ contactForm.github_link(class_="form-control my-3", placeholder="About Github Link") }}   
+    </div>
+    <div class="mb-3">
+        {{ contactForm.linkedin_link(class_="form-control my-3", placeholder="About Linkedin Link") }}   
+    </div>
+    <div class="mb-3">
+        {{ contactForm.submit(class_="btn btn-success", value="Add Contact") }}  
+    </div>
+
+</form>
+
+{% endblock %}

@@ -7,11 +7,12 @@ class Home(db.Model):
     __tablename__ = 'home'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     full_name = db.Column(db.String(200))
-    description = db.Column(db.String(200))
+    content = db.Column(db.String(200))
     github_link = db.Column(db.String(200))
     linkedin_link = db.Column(db.String(200))
     facebook_link = db.Column(db.String(200))
-    email_link = db.Column(db.String(200))
+    email = db.Column(db.String(200))
+    
 class About(db.Model):
     __tablename__ = 'about'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -35,19 +36,19 @@ class Education(db.Model):
     __tablename__ = 'education'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     speciality = db.Column(db.String(200))
-    start_date = db.Column(db.String(200))
-    end_date = db.Column(db.String(200))
-    university_address = db.Column(db.String(200))
+    start_date = db.Column(db.Integer)
+    end_date = db.Column(db.Integer)
+    university = db.Column(db.String(200))
     description = db.Column(db.Text)
 
 class Experience(db.Model):
     __tablename__ = 'experience'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     job_title = db.Column(db.String(200))
-    start_date = db.Column(db.String(200))
-    end_date = db.Column(db.String(200))
+    start_date = db.Column(db.Integer)
+    end_date = db.Column(db.Integer)
     company_name = db.Column(db.String(200))
-    make_done = db.Column(db.String(200))
+    description = db.Column(db.Text)
 
 class ProjectCategory(db.Model):
     __tablename__ = 'project_category'
@@ -59,7 +60,6 @@ class Projects(db.Model):
     __tablename__ = 'projects'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(200))
-    description = db.Column(db.Text)
     category_id = db.Column(db.Integer, db.ForeignKey('project_category.id'), nullable=False)
     image = db.Column(db.String(200))
     link = db.Column(db.String(200))

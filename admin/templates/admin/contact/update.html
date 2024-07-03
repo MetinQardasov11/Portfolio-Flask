@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="text-white">Update Contact</h1>
+
+<form action="{{ url_for('admin.contact.update', id=contact.id) }}" method='post' enctype="multipart/form-data">
+    
+    <div class="mb-3">
+        <input type="text" name="address" value="{{ contact.address }}" placeholder="Contact Address" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="text" name="phone" value="{{ contact.phone }}" placeholder="Contact Phone" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="text" name="email" value="{{ contact.email }}" placeholder="Contact Email" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="text" name="github_link" value="{{ contact.github_link }}" placeholder="Contact Github Link" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="text" name="linkedin_link" value="{{ contact.linkedin_link }}" placeholder="Contact Linkedin Link" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="submit" value="Update Contact" class="btn btn-warning">
+    </div>
+</form>
+
+{% endblock %}

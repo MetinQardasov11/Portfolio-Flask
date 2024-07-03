@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3 class="text-white">All Experiences</h3>
+    <a href="{{ url_for('admin.experience.add') }}" class="btn btn-success mb-3">Add Experience</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Job Title</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Company Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for experience in experiences %}
+                <tr>
+                    <td>{{ experience.id }}</td>
+                    <td>{{ experience.job_title }}</td>
+                    <td>{{ experience.start_date }}</td>
+                    <td>{{ experience.end_date }}</td>
+                    <td>{{ experience.company_name }}</td>
+                    <td>{{ experience.description | safe }}</td>
+                    <td>
+                        <a href="{{ url_for('admin.experience.update', id=experience.id) }}" class="btn btn-warning">Update</a>
+                        <a href="{{ url_for('admin.experience.delete', id=experience.id) }}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3 class="text-white">All About Information</h3>
+    <a href="{{ url_for('admin.about.add') }}" class="btn btn-success mb-3">Add articles</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Job</th>
+                <th>Birthday</th>
+                <th>Website</th>
+                <th>Phone</th>
+                <th>City</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for about in abouts %}
+                <tr>
+                    <td>{{ about.id }}</td>
+                    <td>
+                        <img src="{{ url_for('app.static', filename='assets/uploads/' + about.image)}}" style="height: 50px;" alt="">
+                    </td>
+                    <td>{{ about.job }}</td>
+                    <td>{{ about.birthday }}</td>
+                    <td>{{ about.website }}</td>
+                    <td>{{ about.phone }}</td>
+                    <td>{{ about.city }}</td>
+                    <td>{{ about.age }}</td>
+                    <td>{{ about.email }}</td>
+                    <td>{{ about.description | safe }}</td>
+                    <td>
+                        <a href="{{ url_for('admin.about.update', id=about.id) }}" class="btn btn-warning">Update</a>
+                        <a href="{{ url_for('admin.about.delete', id=about.id) }}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

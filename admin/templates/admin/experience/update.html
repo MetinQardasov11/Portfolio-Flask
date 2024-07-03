@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="text-white">Update Experience</h1>
+
+<form action="{{ url_for('admin.experience.update', id=experience.id) }}" method='post' enctype="multipart/form-data">
+    {{ ckeditor.load(pkg_type="full") }}
+
+    <div class="mb-3">
+        <input type="text" name="job_title" value="{{ experience.job_title }}" placeholder="Experience Job Title" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="number" name="start_date" value="{{ experience.start_date }}" placeholder="Experience Start Date" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="number" name="end_date" value="{{ experience.end_date }}" placeholder="Experience End Date" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="text" name="company_name" value="{{ experience.company_name }}" placeholder="Experience Company Name" class="form-control">
+    </div>
+    <div class="mb-3">
+        <textarea name="description" id="description" cols="30" rows="10" class="form-control">{{ experience.description }}</textarea>
+    </div>
+    <div class="mb-3">
+        <input type="submit" value="Update Experience" class="btn btn-warning">
+    </div>
+</form>
+
+{% endblock %}

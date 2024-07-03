@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="text-white">Update Home Information</h1>
+
+<form action="{{ url_for('admin.home.update', id=home.id) }}" method='post' enctype="multipart/form-data">
+
+    <div class="mb-3">
+        <input type="text" name="full_name" value="{{ home.full_name }}" placeholder="Home Information Full Name" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="text" name="content" value="{{ home.content }}" placeholder="Home Information Content" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="text" name="github_link" value="{{ home.github_link }}" placeholder="Home Information Github Link" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="text" name="linkedin_link" value="{{ home.linkedin_link }}" placeholder="Home Information Linkedin Link" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="text" name="facebook_link" value="{{ home.facebook_link }}" placeholder="Home Information Facebook Link" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="text" name="email" value="{{ home.email }}" placeholder="Home Information Email" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="submit" value="Update Home Information" class="btn btn-warning">
+    </div>
+</form>
+
+{% endblock %}

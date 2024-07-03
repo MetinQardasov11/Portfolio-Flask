@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="text-white">Add Experience</h2>
+
+<form action="{{ url_for('admin.experience.add') }}" method="post" enctype="multipart/form-data">
+    {{ ckeditor.load(pkg_type="full") }}
+
+    <div class="mb-3">
+        {{ experienceForm.job_title(class_="form-control my-3", placeholder="Experience Job Title") }}
+    </div>
+    <div class="mb-3">
+        {{ experienceForm.start_date(class_="form-control my-3", placeholder="Experience Start Date") }}
+    </div>
+    <div class="mb-3">
+        {{ experienceForm.end_date(class_="form-control my-3",  placeholder="Experience End Date") }}
+    </div>
+    <div class="mb-3">
+        {{ experienceForm.company_name(class_="form-control my-3", placeholder="Experience Company Name") }}   
+    </div>
+    <div class="mb-3">
+        {{ experienceForm.description(class_="form-control my-3", placeholder="Experience Description") }}   
+    </div>
+    <div class="mb-3">
+        {{ experienceForm.submit(class_="btn btn-success", value="Add Experience") }}  
+    </div>
+
+</form>
+
+{% endblock %}

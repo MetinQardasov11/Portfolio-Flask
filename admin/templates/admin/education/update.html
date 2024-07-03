@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="text-white">Update Education</h1>
+
+<form action="{{ url_for('admin.education.update', id=education.id) }}" method='post' enctype="multipart/form-data">
+    {{ ckeditor.load(pkg_type="full") }}
+
+    <div class="mb-3">
+        <input type="text" name="speciality" value="{{ education.speciality }}" placeholder="Education Speciality" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="number" name="start_date" value="{{ education.start_date }}" placeholder="Education Start Date" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="number" name="end_date" value="{{ education.end_date }}" placeholder="Education End Date" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="text" name="university" value="{{ education.university }}" placeholder="Education University" class="form-control">
+    </div>
+    <div class="mb-3">
+        <textarea name="description" id="description" cols="30" rows="10" class="form-control">{{ education.description }}</textarea>
+    </div>
+    <div class="mb-3">
+        <input type="submit" value="Update Education" class="btn btn-warning">
+    </div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="text-white">Add Home Information</h2>
+
+<form action="{{ url_for('admin.home.add') }}" method="post" enctype="multipart/form-data">
+
+    <div class="mb-3">
+        {{ homeForm.full_name(class_="form-control my-3", placeholder="Home Information Full Name") }}
+    </div>
+    <div class="mb-3">
+        {{ homeForm.content(class_="form-control my-3", placeholder="Home Information Content") }}
+    </div>
+    <div class="mb-3">
+        {{ homeForm.github_link(class_="form-control my-3",  placeholder="Home Information Github Link") }}
+    </div>
+    <div class="mb-3">
+        {{ homeForm.linkedin_link(class_="form-control my-3", placeholder="Home Information Linkedin Link") }}   
+    </div>
+    <div class="mb-3">
+        {{ homeForm.facebook_link(class_="form-control my-3", placeholder="Home Information Facebook Link") }}   
+    </div>
+    <div class="mb-3">
+        {{ homeForm.email(class_="form-control my-3", placeholder="Home Information Email") }}   
+    </div>
+    <div class="mb-3">
+        {{ homeForm.submit(class_="btn btn-success", value="Add Home Information") }}  
+    </div>
+
+</form>
+
+{% endblock %}

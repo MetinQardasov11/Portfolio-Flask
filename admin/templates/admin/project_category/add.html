@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Add Project Category</h2>
+
+<form action="{{ url_for('admin.project_category.add') }}" method="post" enctype="multipart/form-data">
+
+    <div class="mb-3">
+        {{ categoryForm.name(class_="form-control my-3", placeholder="Category Name") }}
+    </div>
+    <div class="mb-3">
+        {{ categoryForm.submit(class_="btn btn-success", value="Add Category") }}
+    </div>
+
+</form>
+
+{% endblock %}

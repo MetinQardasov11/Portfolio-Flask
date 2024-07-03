@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="text-white">Update About Information</h1>
+
+<form action="{{ url_for('admin.about.update', id=about.id) }}" method='post' enctype="multipart/form-data">
+    {{ ckeditor.load(pkg_type="full") }}
+    
+    <div class="mb-3">
+        <input type="file" name="image" placeholder="About Image" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="text" name="job" value="{{ about.job }}" placeholder="About Job" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="text" name="birthday" value="{{ about.birthday }}" placeholder="About Birthday" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="text" name="website" value="{{ about.website }}" placeholder="About Website" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="text" name="phone" value="{{ about.phone }}" placeholder="About Phone" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="text" name="city" value="{{ about.city }}" placeholder="About City" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="number" name="age" value="{{ about.age }}" placeholder="About Age" class="form-control">
+    </div>
+    <div class="mb-3">
+        <input type="email" name="email" value="{{ about.email }}" placeholder="About Email" class="form-control">
+    </div>
+    <div class="mb-3">
+        <textarea name="description" id="description" cols="30" rows="10" class="form-control">{{ about.description }}</textarea>
+    </div>
+    <div class="mb-3">
+        <input type="submit" value="Update About Information" class="btn btn-warning">
+    </div>
+</form>
+
+{% endblock %}

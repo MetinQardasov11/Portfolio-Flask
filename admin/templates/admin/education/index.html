@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3 class="text-white">All Educations</h3>
+    <a href="{{ url_for('admin.education.add') }}" class="btn btn-success mb-3">Add Education</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Speciality</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>University</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for education in educations %}
+                <tr>
+                    <td>{{ education.id }}</td>
+                    <td>{{ education.speciality }}</td>
+                    <td>{{ education.start_date }}</td>
+                    <td>{{ education.end_date }}</td>
+                    <td>{{ education.university }}</td>
+                    <td>{{ education.description | safe }}</td>
+                    <td>
+                        <a href="{{ url_for('admin.education.update', id=education.id) }}" class="btn btn-warning">Update</a>
+                        <a href="{{ url_for('admin.education.delete', id=education.id) }}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
