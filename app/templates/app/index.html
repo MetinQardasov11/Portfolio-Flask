@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ url_for('app.static', filename='assets/img/favicon.png') }}" rel="icon">
-  <link href="{{ url_for('app.static', filename='assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="{{ url_for('app.static', filename='assets/img/fav.jpg') }}" rel="icon">
+  <link href="{{ url_for('app.static', filename='assets/img/fav.jpg') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -152,48 +152,26 @@
       <div class="row">
         <div class="col-lg-6">
 
-          <h3 class="resume-title">Education</h3>
-          <div class="resume-item">
-            <h4>Master of Fine Arts &amp; Graphic Design</h4>
-            <h5>2015 - 2016</h5>
-            <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
-            <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
-          </div>
-          <div class="resume-item">
-            <h4>Bachelor of Fine Arts &amp; Graphic Design</h4>
-            <h5>2010 - 2014</h5>
-            <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
-            <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila</p>
-          </div>
+        <h3 class="resume-title">Education</h3>
+        {% for education in educations %}
+            <div class="resume-item">
+                <h4>{{ education.speciality }}</h4>
+                <h5>{{ education.start_date }} - {{ education.end_date }}</h5>
+                <p><em>{{ education.university }}</em></p>
+                <p>{{ education.description | safe }}</p>
+            </div>
+        {% endfor %}
         </div>
         <div class="col-lg-6">
-          <h3 class="resume-title">Professional Experience</h3>
-          <div class="resume-item">
-            <h4>Senior graphic design specialist</h4>
-            <h5>2019 - Present</h5>
-            <p><em>Experion, New York, NY </em></p>
-            <p>
-            <ul>
-              <li>Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li>
-              <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project. </li>
-              <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li>
-              <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>
-            </ul>
-            </p>
-          </div>
-          <div class="resume-item">
-            <h4>Graphic design specialist</h4>
-            <h5>2017 - 2018</h5>
-            <p><em>Stepping Stone Advertising, New York, NY</em></p>
-            <p>
-            <ul>
-              <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
-              <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
-              <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-              <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
-            </ul>
-            </p>
-          </div>
+            <h3 class="resume-title">Professional Experience</h3>
+            {% for experience in experiences %}
+                <div class="resume-item">
+                    <h4>{{ experience.job_title }}</h4>
+                    <h5>{{ experience.start_date }} - {{ experience.end_date }}</h5>
+                    <p><em>{{ experience.company_name }}</em></p>
+                    <p>{{ experience.description | safe }}</p>
+                </div>
+          {% endfor %}
         </div>
       </div>
 
@@ -343,6 +321,7 @@
   <section id="contact" class="contact">
     <div class="container">
 
+        {% for contact in contacts %}
       <div class="section-title">
         <h2>Contact</h2>
         <p>Contact Me</p>
@@ -354,7 +333,7 @@
           <div class="info-box">
             <i class="bx bx-map"></i>
             <h3>My Address</h3>
-            <p>A108 Adam Street, New York, NY 535022</p>
+            <p>{{ contact.address }}</p>
           </div>
         </div>
 
@@ -363,8 +342,8 @@
             <i class="bx bx-share-alt"></i>
             <h3>Social Profiles</h3>
             <div class="social-links">
-              <a href="#" class="github"><i class="bi bi-github"></i></a>
-              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              <a href="{{ contact.github_link }}" class="github"><i class="bi bi-github"></i></a>
+              <a href="{{ contact.linkedin_link }}" class="linkedin"><i class="bi bi-linkedin"></i></a>
             </div>
           </div>
         </div>
@@ -373,18 +352,18 @@
           <div class="info-box">
             <i class="bx bx-envelope"></i>
             <h3>Email Me</h3>
-            <p>contact@example.com</p>
+            <p>{{ contact.email }}</p>
           </div>
         </div>
         <div class="col-md-6 mt-4 d-flex align-items-stretch">
           <div class="info-box">
             <i class="bx bx-phone-call"></i>
             <h3>Call Me</h3>
-            <p>+1 5589 55488 55</p>
+            <p>{{ contact.phone }}</p>
           </div>
         </div>
       </div>
-
+        {% endfor %}
       <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4">
         <div class="row">
           <div class="col-md-6 form-group">

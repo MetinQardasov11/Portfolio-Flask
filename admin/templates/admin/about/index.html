@@ -15,7 +15,6 @@
                 <th>City</th>
                 <th>Age</th>
                 <th>Email</th>
-                <th>Description</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -33,7 +32,6 @@
                     <td>{{ about.city }}</td>
                     <td>{{ about.age }}</td>
                     <td>{{ about.email }}</td>
-                    <td>{{ about.description | safe }}</td>
                     <td>
                         <a href="{{ url_for('admin.about.update', id=about.id) }}" class="btn btn-warning">Update</a>
                         <a href="{{ url_for('admin.about.delete', id=about.id) }}" class="btn btn-danger">Delete</a>

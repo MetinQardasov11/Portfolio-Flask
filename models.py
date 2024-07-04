@@ -45,8 +45,8 @@ class Experience(db.Model):
     __tablename__ = 'experience'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     job_title = db.Column(db.String(200))
-    start_date = db.Column(db.Integer)
-    end_date = db.Column(db.Integer)
+    start_date = db.Column(db.String(200))
+    end_date = db.Column(db.String(200))
     company_name = db.Column(db.String(200))
     description = db.Column(db.Text)
 

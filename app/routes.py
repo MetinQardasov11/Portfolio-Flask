@@ -24,7 +24,6 @@ def portfolio_details():
 
 
 
-
 # @app_bp.route('/register', methods = ['GET', 'POST'])
 # def register():
 #     if request.method == 'POST':
