@@ -76,15 +76,8 @@ class Contact(db.Model):
 class Users(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    fullname = db.Column(db.String(200))
     email = db.Column(db.String(200))
     password = db.Column(db.String(200))
-    confirm_password = db.Column(db.String(200))
-    
-class LoggedInUsers(db.Model):
-    __tablename__ = 'logged_in_users'
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    user_id = db.Column(db.Integer)
-    login_time = db.Column(db.DateTime)
-    logout_time = db.Column(db.DateTime)
     is_logged_in = db.Column(db.Boolean, default=False)
+    created_at = db.Column(db.DateTime, default=datetime.datetime.now())
+    updated_at = db.Column(db.DateTime, default=datetime.datetime.now())
